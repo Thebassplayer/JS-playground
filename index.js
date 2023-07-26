@@ -1,51 +1,65 @@
 function zero(fn) {
-  fn ? fn(0) : 0;
+  const num = 0;
+  return fn ? fn(num) : num;
 }
 function one(fn) {
-  fn ? fn(0) : 0;
+  num = 1;
+  return fn ? fn(num) : num;
 }
 function two(fn) {
-  fn ? fn(0) : 0;
+  num = 2;
+  return fn ? fn(num) : num;
 }
 function three(fn) {
-  fn ? fn(0) : 0;
+  num = 3;
+  return fn ? fn(num) : num;
 }
 function four(fn) {
-  fn ? fn(0) : 0;
+  num = 4;
+  return fn ? fn(num) : num;
 }
 function five(fn) {
-  fn ? fn(0) : 0;
+  num = 5;
+  return fn ? fn(num) : num;
 }
 function six(fn) {
-  fn ? fn(0) : 0;
+  num = 6;
+  return fn ? fn(num) : num;
 }
 function seven(fn) {
-  fn ? fn(0) : 0;
+  num = 7;
+  return fn ? fn(num) : num;
 }
 function eight(fn) {
-  fn ? fn(0) : 0;
+  num = 8;
+  return fn ? fn(num) : num;
 }
 function nine(fn) {
-  fn ? fn(0) : 0;
+  num = 9;
+  return fn ? fn(num) : num;
 }
 
 function plus(x) {
   return function (y) {
-    y + x;
+    return x + y;
   };
 }
 function minus(x) {
   return function (y) {
-    y - x;
+    return x - y;
   };
 }
 function times(x) {
   return function (y) {
-    y * x;
+    return x * y;
   };
 }
 function dividedBy(x) {
   return function (y) {
-    y / x;
+    return x / y;
   };
 }
+
+const result = seven(times(five()));
+
+console.log(result);
