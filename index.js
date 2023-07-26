@@ -60,6 +60,6 @@ function dividedBy(x) {
   };
 }
 
-const result = seven(times(five()));
+const result = seven(times(4));
 
 console.log(result);
