@@ -1,65 +1,32 @@
-function zero(fn) {
-  const num = 0;
-  return fn ? fn(num) : num;
-}
-function one(fn) {
-  num = 1;
-  return fn ? fn(num) : num;
-}
-function two(fn) {
-  num = 2;
-  return fn ? fn(num) : num;
-}
-function three(fn) {
-  num = 3;
-  return fn ? fn(num) : num;
-}
-function four(fn) {
-  num = 4;
-  return fn ? fn(num) : num;
-}
-function five(fn) {
-  num = 5;
-  return fn ? fn(num) : num;
-}
-function six(fn) {
-  num = 6;
-  return fn ? fn(num) : num;
-}
-function seven(fn) {
-  num = 7;
-  return fn ? fn(num) : num;
-}
-function eight(fn) {
-  num = 8;
-  return fn ? fn(num) : num;
-}
-function nine(fn) {
-  num = 9;
-  return fn ? fn(num) : num;
+/**
+ * Convert HTML Entities
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+ */
+
+function convertHTML(str) {
+  function characterChanger(character) {
+    switch (character) {
+      case '&':
+        return '&amp;';
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '"':
+        return '&quot;';
+      case "'":
+        return '&apos;';
+      default:
+        return character;
+    }
+  }
+
+  return str
+    .split('')
+    .map((char) => characterChanger(char))
+    .join('');
 }
 
-function plus(x) {
-  return function (y) {
-    return x + y;
-  };
-}
-function minus(x) {
-  return function (y) {
-    return x - y;
-  };
-}
-function times(x) {
-  return function (y) {
-    return x * y;
-  };
-}
-function dividedBy(x) {
-  return function (y) {
-    return x / y;
-  };
-}
-
-const result = seven(times(4));
+const result = convertHTML('Dolce & Gabbana');
 
 console.log(result);
