@@ -1,32 +1,42 @@
-console.log('conected!');
-
-function charsToMap(str) {
-  const charsMap = new Map();
-
-  for (const char of str) {
-    const lowerChar = char.toLowerCase();
-    charsMap.set(lowerChar, (charsMap.get(lowerChar) || 0) + 1);
+class Animal {
+  sleep() {
+    console.log("Shhhh, i'm sleeping");
   }
-  return charsMap;
+  eat() {
+    console.log('Mmmmm, tasty');
+  }
 }
 
-function findFirstUniqueChar(str, charMap) {
-  for (let char of str) {
-    if (charMap.get(char.toLowerCase()) === 1) {
-      return char;
+class Dog extends Animal {
+  constructor(name) {
+    super();
+    this.name = name;
+  }
+}
+
+const dog1 = new Dog('Raul');
+
+const dogFunctionalities = {
+  bark: () => console.log('woof!'),
+  run: () => console.log("Let's go out!"),
+};
+
+Object.assign(Dog.prototype, dogFunctionalities);
+
+console.log(dog1.eat());
+
+console.log(Object.getPrototypeOf(dog1));
+
+const dogMethods = () => {
+  let methods = [];
+
+  for (let method in dog1) {
+    if (typeof dog1[method] === 'function') {
+      methods.push(method);
     }
   }
 
-  return '';
-}
+  console.log('Methods:', methods);
+};
 
-function firstNonRepeatingLetter(s) {
-  const charsMap = charsToMap(s);
-  return findFirstUniqueChar(s, charsMap);
-}
-
-const str = 'sTress';
-
-const result = firstNonRepeatingLetter(str);
-
-console.log(result);
+dogMethods();
